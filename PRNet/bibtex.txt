@@ -1,0 +1,8 @@
+@article{wang2024progressive,
+  title={Progressive Recurrent Network for shadow removal},
+  author={Wang, Yonghui and Zhou, Wengang and Feng, Hao and Li, Li and Li, Houqiang},
+  journal={Computer Vision and Image Understanding},
+  volume={238},
+  pages={103861},
+  year={2024}
+}

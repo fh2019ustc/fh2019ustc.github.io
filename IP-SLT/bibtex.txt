@@ -1,0 +1,7 @@
+@inproceedings{yao2023sign,
+  title={Sign language translation with iterative prototype},
+  author={Yao, Huijie and Zhou, Wengang and Feng, Hao and Hu, Hezhen and Zhou, Hao and Li, Houqiang},
+  booktitle={Proceedings of the IEEE International Conference on Computer Vision},
+  pages={15592--15601},
+  year={2023}
+}

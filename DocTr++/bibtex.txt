@@ -1,0 +1,6 @@
+@article{feng2023deep,
+  title={Deep unrestricted document image rectification},
+  author={Feng, Hao and Liu, Shaokai and Deng, Jiajun and Zhou, Wengang and Li, Houqiang},
+  journal={IEEE Transactions on Multimedia},
+  year={2023}
+}

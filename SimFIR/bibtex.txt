@@ -1,0 +1,8 @@
+@InProceedings{Feng_2023_ICCV,
+    author    = {Feng, Hao and Wang, Wendi and Deng, Jiajun and Zhou, Wengang and Li, Li and Li, Houqiang},
+    title     = {SimFIR: A Simple Framework for Fisheye Image Rectification with Self-supervised Representation Learning},
+    booktitle = {Proceedings of the IEEE International Conference on Computer Vision},
+    month     = {October},
+    year      = {2023},
+    pages     = {12418-12427}
+}

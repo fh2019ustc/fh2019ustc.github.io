@@ -1,0 +1,6 @@
+@article{feng2023recurrent,
+  title={Recurrent Generic Contour-based Instance Segmentation with Progressive Learning},
+  author={Feng, Hao and Zhou, Keyi and Zhou, Wengang and Yin, Yufei and Deng, Jiajun and Sun, Qi and Li, Houqiang},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2024}
+}

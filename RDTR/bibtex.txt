@@ -1,0 +1,6 @@
+@article{wang2023model,
+  title={Model-Aware Pre-Training for Radial Distortion Rectification},
+  author={Wang, Wendi and Feng, Hao and Zhou, Wengang and Liao, Zhaokang and Li, Houqiang},
+  journal={IEEE Transactions on Image Processing},
+  year={2023}
+}

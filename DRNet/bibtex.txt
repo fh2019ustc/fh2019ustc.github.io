@@ -1,0 +1,6 @@
+@article{liu2023rethinking,
+  title={Rethinking Supervision in Document Unwarping: A Self-consistent Flow-free Approach},
+  author={Liu, Shaokai and Feng, Hao and Zhou, Wengang},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2023}
+}

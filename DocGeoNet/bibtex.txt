@@ -1,0 +1,7 @@
+@inproceedings{feng2022geometric,
+  title={Geometric Representation Learning for Document Image Rectification},
+  author={Feng, Hao and Zhou, Wengang and Deng, Jiajun and Wang, Yuechen and Li, Houqiang},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={475--492},
+  year={2022}
+}
