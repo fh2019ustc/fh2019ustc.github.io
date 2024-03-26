@@ -1,0 +1,6 @@
+@article{feng2023docpedia,
+  title={DocPedia: Unleashing the Power of Large Multimodal Model in the Frequency Domain for Versatile Document Understanding},
+  author={Feng, Hao and Liu, Qi and Liu, Hao and Zhou, Wengang and Li, Houqiang and Huang, Can},
+  journal={arXiv preprint arXiv:2311.11810},
+  year={2023}
+}

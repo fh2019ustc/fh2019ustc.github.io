@@ -1,0 +1,6 @@
+@article{feng2024deeperaser,
+  title={DeepEraser: Deep Iterative Context Mining for Generic Text Eraser},
+  author={Feng, Hao and Wang, Wendi and Liu, Shaokai and Deng, Jiajun and Zhou, Wengang and Li, Houqiang},
+  journal={arXiv preprint arXiv:2402.19108},
+  year={2024}
+}

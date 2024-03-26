@@ -1,0 +1,6 @@
+@article{feng2023unidoc,
+  title={UniDoc: A universal large multimodal model for simultaneous text detection, recognition, spotting and understanding},
+  author={Feng, Hao and Wang, Zijian and Tang, Jingqun and Lu, Jinghui and Zhou, Wengang and Li, Houqiang and Huang, Can},
+  journal={arXiv preprint arXiv:2308.11592},
+  year={2023}
+}
