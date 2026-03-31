@@ -1,439 +1,687 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" slick-uniqueid="3">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="keywords" content="Hao Feng, 冯浩"> 
-<meta name="description" content="Hao Feng&#39;s home page">
-<link rel="stylesheet" href="./page_files/style/jemdoc.css" type="text/css">
-<style type="text/css">
-</style>
-<title>Hao Feng - Homepage</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Hao Feng, 冯浩, Document AI, Multimodal LLM, USTC, ByteDance">
+  <meta name="description" content="Hao Feng's Homepage — Document AI & Multimodal LLM Researcher">
+  <title>Hao Feng - Homepage</title>
+  <style>
+    /* ===== Variables ===== */
+    :root {
+      --primary: #2563eb;
+      --primary-light: #dbeafe;
+      --text: #1a1a1a;
+      --text-muted: #6b7280;
+      --bg: #ffffff;
+      --bg-alt: #f8fafc;
+      --border: #e5e7eb;
+      --shadow: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --radius: 8px;
+      --nav-height: 56px;
+    }
+
+    /* ===== Reset ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== Layout ===== */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+      background: var(--primary-light);
+      text-decoration: none;
+    }
+
+    /* Language toggle button */
+    .lang-btn {
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--bg);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      margin-left: 8px;
+    }
+    .lang-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    /* ===== Main content ===== */
+    main {
+      padding-top: calc(var(--nav-height) + 40px);
+      padding-bottom: 60px;
+    }
+
+    /* ===== Profile ===== */
+    .profile {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin-bottom: 52px;
+    }
+    .profile-photo {
+      flex-shrink: 0;
+    }
+    .profile-photo img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: var(--shadow-md);
+      border: 3px solid var(--border);
+    }
+    .profile-info h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .profile-info h1 .cn-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-left: 10px;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+    .profile-affiliation {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 8px 0 16px;
+      line-height: 1.6;
+    }
+    .profile-affiliation strong {
+      color: var(--text);
+    }
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .profile-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .profile-links a:hover {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary);
+      text-decoration: none;
+    }
+    .profile-links a svg {
+      width: 14px; height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ===== Sections ===== */
+    section {
+      margin-bottom: 48px;
+    }
+    section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+    section p {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* ===== Publication cards ===== */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .pub-card {
+      display: flex;
+      gap: 20px;
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      transition: box-shadow 0.2s;
+    }
+    .pub-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    .pub-thumb {
+      flex-shrink: 0;
+      width: 180px;
+    }
+    .pub-thumb img {
+      width: 180px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+    .pub-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .pub-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .pub-authors strong {
+      color: var(--text);
+    }
+    .pub-venue {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 9px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .badge-conf    { background: #dbeafe; color: #1d4ed8; }
+    .badge-journal { background: #d1fae5; color: #065f46; }
+    .badge-oral    { background: #fef3c7; color: #92400e; }
+    .badge-preprint{ background: #f3e8ff; color: #6d28d9; }
+
+    .pub-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .pub-links a {
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .pub-links a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* ===== Services ===== */
+    .services-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 640px) {
+      .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+      }
+      .profile-links {
+        justify-content: center;
+      }
+      .profile-info h1 { font-size: 1.6rem; }
+      .pub-card {
+        flex-direction: column;
+      }
+      .pub-thumb {
+        width: 100%;
+      }
+      .pub-thumb img {
+        width: 100%;
+        height: 140px;
+      }
+      .nav-links a { display: none; }
+      .nav-links .lang-btn { display: inline-flex; }
+    }
+
+    /* ===== Language switching ===== */
+    [data-lang="zh"] { display: none; }
+    body.zh [data-lang="en"] { display: none; }
+    body.zh [data-lang="zh"] { display: unset; }
+    p[data-lang], div[data-lang], span[data-lang] { }
+    body.zh p[data-lang="en"], body.zh div[data-lang="en"], body.zh span[data-lang="en"] { display: none; }
+    body.zh p[data-lang="zh"], body.zh div[data-lang="zh"], body.zh span[data-lang="zh"] { display: block; }
+    span[data-lang="zh"] { display: none; }
+    body.zh span[data-lang="zh"] { display: inline; }
+    body.zh span[data-lang="en"] { display: none; }
+  </style>
 </head>
-
-
 <body>
 
-<div id="layout-content" style="margin-top:25px">
+<!-- ===== Navbar ===== -->
+<nav>
+  <div class="container">
+    <span class="nav-name">Hao Feng &nbsp;·&nbsp; 冯浩</span>
+    <div class="nav-links">
+      <a href="#about">
+        <span data-lang="en">About</span><span data-lang="zh">关于</span>
+      </a>
+      <a href="#publications">
+        <span data-lang="en">Publications</span><span data-lang="zh">论文</span>
+      </a>
+      <a href="#manuscripts">
+        <span data-lang="en">Manuscripts</span><span data-lang="zh">预印本</span>
+      </a>
+      <a href="#services">
+        <span data-lang="en">Services</span><span data-lang="zh">学术服务</span>
+      </a>
+      <button class="lang-btn" id="langToggle" onclick="toggleLang()">中文</button>
+    </div>
+  </div>
+</nav>
 
-<table>
-<tbody>
-  <tr>
-    <td width="39%" valign="top" height="193">
-      <img height="190" id="photo" style="padding: 0pt 30pt 0pt 20pt; float: left; display: inline;" src="./page_files/photo.jpg">
-    </td>
-    
-    <td width="60%" valign="top" height="193">
-      <b><font face="Times New Roman" size="6">Hao Feng </font><font size="5.5" face="楷体_GB2312"> &nbsp 冯浩</font><font face="Times New Roman" size="6"></font></b>
-      <br><br>    
-      <p>          
-          Ph.D.
+<!-- ===== Main ===== -->
+<main>
+  <div class="container">
+
+    <!-- Profile -->
+    <div class="profile">
+      <div class="profile-photo">
+        <img src="./page_files/photo.jpg" alt="Hao Feng">
+      </div>
+      <div class="profile-info">
+        <h1>Hao Feng <span class="cn-name">冯浩</span></h1>
+        <div class="profile-affiliation">
+          <strong><span data-lang="en">Researcher @ ByteDance</span><span data-lang="zh">研究员 @ 字节跳动</span></strong>
+          <br>
+          <span data-lang="en">Ph.D. · University of Science and Technology of China (USTC)</span>
+          <span data-lang="zh" style="display:none;">博士 · 中国科学技术大学</span>
+          <br>
+          <span style="font-size:0.85rem;">haof@mail.ustc.edu.cn</span>
+        </div>
+        <div class="profile-links">
+          <a href="https://scholar.google.com/citations?user=aB8DspEAAAAJ&hl=zh-CN" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5h4.5v9H9V12h6v6.5h4.5V9.5L12 0z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://github.com/fh2019ustc" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+          <a href="mailto:haof@mail.ustc.edu.cn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section id="about">
+      <h2><span data-lang="en">About Me</span><span data-lang="zh">关于我</span></h2>
+      <p data-lang="en">
+        Ph.D. from the <a href="https://en.ustc.edu.cn/" target="_blank">University of Science and Technology of China</a>.
+        My Ph.D. advisors are <a href="http://staff.ustc.edu.cn/~lihq/" target="_blank">Prof. Houqiang Li</a> and
+        <a href="http://staff.ustc.edu.cn/~zhwg/" target="_blank">Prof. Wengang Zhou</a>.
+        I obtained my Bachelor's degree (2018) from <a href="https://en.xidian.edu.cn/" target="_blank">Xidian University</a>.
+        I'm currently working on Document AI and Multimodal LLM at <a href="https://www.bytedance.com/en/" target="_blank">ByteDance</a>.
       </p>
-      <p>          
-          University of Science and Technology of China (USTC)
+      <p data-lang="zh">
+        中国科学技术大学博士，导师为
+        <a href="http://staff.ustc.edu.cn/~lihq/" target="_blank">李厚强教授</a>和
+        <a href="http://staff.ustc.edu.cn/~zhwg/" target="_blank">周文罡教授</a>。
+        本科毕业于<a href="https://www.xidian.edu.cn/" target="_blank">西安电子科技大学</a>（2018年）。
+        目前在<a href="https://www.bytedance.com/" target="_blank">字节跳动</a>从事文档 AI 与多模态大模型研究。
       </p>
-      <p>          
-          Email: haof@mail.ustc.edu.cn
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2><span data-lang="en">Publications</span><span data-lang="zh">发表论文</span></h2>
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./Dolphin/Dolphin.jpeg" alt="Dolphin"></div>
+          <div class="pub-info">
+            <div class="pub-title">Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Shu Wei, Xiang Fei, Wei Shi, Yingdong Han, Lei Liao, Jinghui Lu, Binghong Wu, Qi Liu, Chunhui Lin, Jingqun Tang, Hao Liu, Can Huang</div>
+            <div class="pub-venue"><span class="badge badge-conf">ACL 2025</span></div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2505.14059" target="_blank">pdf</a>
+              <a href="https://github.com/bytedance/Dolphin" target="_blank">code</a>
+              <a href="./Dolphin/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./DocScanner/DocScanner.png" alt="DocScanner"></div>
+          <div class="pub-info">
+            <div class="pub-title">DocScanner: Robust Document Image Rectification with Progressive Learning</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Wengang Zhou, Jiajun Deng, Qi Tian, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-journal">IJCV 2025</span></div>
+            <div class="pub-links">
+              <a href="./DocScanner/DocScanner.pdf" target="_blank">pdf</a>
+              <a href="https://github.com/fh2019ustc/DocScanner" target="_blank">code</a>
+              <a href="./DocScanner/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./DocPedia/DocPedia.png" alt="DocPedia"></div>
+          <div class="pub-info">
+            <div class="pub-title">DocPedia: Unleashing the Power of Large Multimodal Model in the Frequency Domain for Versatile Document Understanding</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Qi Liu, Hao Liu, Jingqun Tang, Wengang Zhou, Houqiang Li, Can Huang</div>
+            <div class="pub-venue"><span class="badge badge-journal">SCIS 2024</span></div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2311.11810.pdf" target="_blank">pdf</a>
+              <a href="./DocPedia/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./DeepEraser/DeepEraser.png" alt="DeepEraser"></div>
+          <div class="pub-info">
+            <div class="pub-title">DeepEraser: Deep Iterative Context Mining for Generic Text Eraser</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Wendi Wang, Shaokai Liu, Jiajun Deng, Wengang Zhou, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-journal">TMM 2024</span></div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2402.19108.pdf" target="_blank">pdf</a>
+              <a href="https://github.com/fh2019ustc/DeepEraser" target="_blank">code</a>
+              <a href="./DeepEraser/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./PolySnake/PolySnake.png" alt="PolySnake"></div>
+          <div class="pub-info">
+            <div class="pub-title">Recurrent Generic Contour-based Instance Segmentation with Progressive Learning</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Keyi Zhou, Wengang Zhou, Yufei Yin, Jiajun Deng, Qi Sun, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-journal">TCSVT 2024</span></div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2301.08898.pdf" target="_blank">pdf</a>
+              <a href="https://github.com/fh2019ustc/PolySnake" target="_blank">code</a>
+              <a href="./PolySnake/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./DocTr++/DocTr++.png" alt="DocTr++"></div>
+          <div class="pub-info">
+            <div class="pub-title">Deep Unrestricted Document Image Rectification</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Shaokai Liu, Jiajun Deng, Wengang Zhou, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-journal">TMM 2023</span></div>
+            <div class="pub-links">
+              <a href="https://ieeexplore.ieee.org/abstract/document/10374269" target="_blank">pdf</a>
+              <a href="https://github.com/fh2019ustc/DocTr-Plus" target="_blank">code</a>
+              <a href="./DocTr++/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./SimFIR/SimFIR.png" alt="SimFIR"></div>
+          <div class="pub-info">
+            <div class="pub-title">SimFIR: A Simple Framework for Fisheye Image Rectification with Self-supervised Representation Learning</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Wendi Wang, Jiajun Deng, Wengang Zhou, Li Li, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-conf">ICCV 2023</span></div>
+            <div class="pub-links">
+              <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Feng_SimFIR_A_Simple_Framework_for_Fisheye_Image_Rectification_with_Self-supervised_ICCV_2023_paper.pdf" target="_blank">pdf</a>
+              <a href="https://github.com/fh2019ustc/SimFIR" target="_blank">code</a>
+              <a href="./SimFIR/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./DocGeoNet/Geometric_Representation_Learning.png" alt="DocGeoNet"></div>
+          <div class="pub-info">
+            <div class="pub-title">Geometric Representation Learning for Document Image Rectification</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Wengang Zhou, Jiajun Deng, Yuechen Wang, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-conf">ECCV 2022</span></div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2210.08161.pdf" target="_blank">pdf</a>
+              <a href="https://github.com/fh2019ustc/DocGeoNet" target="_blank">code</a>
+              <a href="./DocGeoNet/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./DocTr/DocTr.png" alt="DocTr"></div>
+          <div class="pub-info">
+            <div class="pub-title">DocTr: Document Image Transformer for Geometric Unwarping and Illumination Correction</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Yuechen Wang, Wengang Zhou, Jiajun Deng, Houqiang Li</div>
+            <div class="pub-venue">
+              <span class="badge badge-conf">ACM MM 2021</span>
+              <span class="badge badge-oral">Oral</span>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2110.12942.pdf" target="_blank">pdf</a>
+              <a href="https://github.com/fh2019ustc/DocTr" target="_blank">code</a>
+              <a href="./DocTr/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./RDTR/RDTR.png" alt="RDTR"></div>
+          <div class="pub-info">
+            <div class="pub-title">Model-Aware Pre-Training for Radial Distortion Rectification</div>
+            <div class="pub-authors">Wendi Wang, <strong>Hao Feng</strong>, Wengang Zhou, Zhaokang Liao, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-journal">TIP 2023</span></div>
+            <div class="pub-links">
+              <a href="https://ieeexplore.ieee.org/abstract/document/10285626" target="_blank">pdf</a>
+              <a href="https://github.com/wwd-ustc/RDTR" target="_blank">code</a>
+              <a href="./RDTR/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./DRNet/DRNet.png" alt="DRNet"></div>
+          <div class="pub-info">
+            <div class="pub-title">Rethinking Supervision in Document Unwarping: A Self-consistent Flow-free Approach</div>
+            <div class="pub-authors">Shaokai Liu, <strong>Hao Feng</strong>, Wengang Zhou</div>
+            <div class="pub-venue"><span class="badge badge-journal">TCSVT 2023</span></div>
+            <div class="pub-links">
+              <a href="https://ieeexplore.ieee.org/abstract/document/10327775" target="_blank">pdf</a>
+              <a href="./RDTR/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./IP-SLT/IP-SLT.png" alt="IP-SLT"></div>
+          <div class="pub-info">
+            <div class="pub-title">Sign Language Translation with Iterative Prototype</div>
+            <div class="pub-authors">Huijie Yao, Wengang Zhou, <strong>Hao Feng</strong>, Hezhen Hu, Hao Zhou, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-conf">ICCV 2023</span></div>
+            <div class="pub-links">
+              <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Yao_Sign_Language_Translation_with_Iterative_Prototype_ICCV_2023_paper.pdf" target="_blank">pdf</a>
+              <a href="./IP-SLT/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./PRNet/PRNet.png" alt="PRNet"></div>
+          <div class="pub-info">
+            <div class="pub-title">Progressive Recurrent Network for Shadow Removal</div>
+            <div class="pub-authors">Yonghui Wang, Wengang Zhou, <strong>Hao Feng</strong>, Li Li, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-journal">CVIU 2023</span></div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2311.00455.pdf" target="_blank">pdf</a>
+              <a href="./PRNet/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Manuscripts -->
+    <section id="manuscripts">
+      <h2><span data-lang="en">Manuscripts</span><span data-lang="zh">预印本</span></h2>
+      <div class="pub-list">
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./UniDoc/UniDoc.png" alt="UniDoc"></div>
+          <div class="pub-info">
+            <div class="pub-title">UniDoc: A Universal Large Multimodal Model for Simultaneous Text Detection, Recognition, Spotting and Understanding</div>
+            <div class="pub-authors"><strong>Hao Feng</strong>, Zijian Wang, Jingqun Tang, Jinghui Lu, Hao Liu, Wengang Zhou, Houqiang Li, Can Huang</div>
+            <div class="pub-venue"><span class="badge badge-preprint">Preprint</span></div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2308.11592.pdf" target="_blank">pdf</a>
+              <a href="./UniDoc/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-card">
+          <div class="pub-thumb"><img src="./TextCoT/TextCoT.png" alt="TextCoT"></div>
+          <div class="pub-info">
+            <div class="pub-title">TextCoT: Zoom In for Enhanced Multimodal Text-Rich Image Understanding</div>
+            <div class="pub-authors">Bozhi Luan, <strong>Hao Feng</strong>, Hong Chen, Wengang Zhou, Houqiang Li</div>
+            <div class="pub-venue"><span class="badge badge-preprint">Preprint</span></div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/pdf/2404.09797.pdf" target="_blank">pdf</a>
+              <a href="https://github.com/bzluan/TextCoT" target="_blank">code</a>
+              <a href="./TextCoT/bibtex.txt" target="_blank">bibtex</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <h2><span data-lang="en">Academic Services</span><span data-lang="zh">学术服务</span></h2>
+      <p data-lang="en" class="services-text">
+        Invited Reviewer for journals and conferences, including TMM, TCSVT, CVPR, ICCV, ECCV, AAAI, ACM MM, ACL, SIGGRAPH, etc.
       </p>
-      <p>          
-          <a href='https://scholar.google.com/citations?user=aB8DspEAAAAJ&hl=zh-CN'>Google Scholar</a> / <a href='https://github.com/fh2019ustc'>Github</a>
+      <p data-lang="zh" class="services-text">
+        担任多个顶级期刊与会议的审稿人，包括 TMM、TCSVT、CVPR、ICCV、ECCV、AAAI、ACM MM、ACL、SIGGRAPH 等。
       </p>
-    </td>
-  </tr>
-</tbody>
-</table>
+    </section>
 
-	
-<h2>About Me</h2>
-<p style="text-align:justify;">
-  Ph.D. from <a href="https://en.ustc.edu.cn/" target="_blank">University of Science and Technology of China</a>. 
-  My Ph.D. advisors are <a href="http://staff.ustc.edu.cn/~lihq/" target="_blank">Prof. Houqiang Li</a> and <a href="http://staff.ustc.edu.cn/~zhwg/" target="_blank">Prof. Wengang Zhou</a>.
-  I obtained my Bachelor degree (2018) in <a href="https://en.xidian.edu.cn/" target="_blank">Xidian University</a>. I’m currently working on Document AI and Multimodal LLM at <a href="https://www.bytedance.com/en/" target="_blank">ByteDance</a>.
-</p>
+  </div>
+</main>
 
-	
-<h2>Publications</h2>
-     
-  <table border="0" width="100%">
-  <tbody>   
+<!-- Footer -->
+<footer>
+  <span data-lang="en">&copy; 2025 Hao Feng &nbsp;·&nbsp; Last updated March 2026</span>
+  <span data-lang="zh">&copy; 2025 冯浩 &nbsp;·&nbsp; 最后更新于 2026 年 3 月</span>
+</footer>
 
-<tr>
-<tr>	
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./Dolphin/Dolphin.jpeg" alt="">
-        </div>
-      </td>
-      <td>
-		<strong>Hao Feng</strong>, Shu Wei, Xiang Fei, Wei Shi, Yingdong Han, Lei Liao, Jinghui Lu, Binghong Wu, Qi Liu, Chunhui Lin, Jingqun Tang, Hao Liu, Can Huang
-        <br> 
-        Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting
-        <br> 
-        Annual Meeting of the Association for Computational Linguistics <strong>(ACL)</strong>, 2025
-        <br>
-        [<a href="https://arxiv.org/abs/2505.14059" target="_blank">pdf</a>]
-        [<a href='https://github.com/bytedance/Dolphin'>code</a>]   
-		[<a href="./Dolphin/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>   
-<tr>
-<tr>	
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const btn = document.getElementById('langToggle');
+    if (body.classList.contains('zh')) {
+      body.classList.remove('zh');
+      btn.textContent = '中文';
+    } else {
+      body.classList.add('zh');
+      btn.textContent = 'EN';
+    }
+  }
+</script>
 
-	  
-<tr>
-<tr>	  
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./DocScanner/DocScanner.png" alt="">
-        </div>
-      </td>
-      <td>
-		<strong>Hao Feng</strong>, Wengang Zhou, Jiajun Deng, Qi Tian, Houqiang Li
-        <br> 
-        DocScanner: Robust Document Image Rectification with Progressive Learning
-        <br>
-	International Journal of Computer Vision <strong>(IJCV)</strong>, 2025
-	<br>
-        [<a href="./DocScanner/DocScanner.pdf" target="_blank">pdf</a>]
-		[<a href='https://github.com/fh2019ustc/DocScanner'>code</a>]   
-		[<a href="./DocScanner/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-	  
-<tr>
-<tr>	  
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./DocPedia/DocPedia.png" alt="">
-        </div>
-      </td>
-      <td>
-		<strong>Hao Feng</strong>, Qi Liu, Hao Liu, Jingqun Tang, Wengang Zhou, Houqiang Li, Can Huang
-        <br> 
-        DocPedia: Unleashing the Power of Large Multimodal Model in the Frequency Domain for Versatile Document Understanding
-        <br>
-	SCIENCE CHINA Information Sciences <strong>(SCIS)</strong>, 2024
-	<br>
-        [<a href="https://arxiv.org/pdf/2311.11810.pdf" target="_blank">pdf</a>]
-		[<a href="./DocPedia/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-
-<tr>
-<tr>	  
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./DeepEraser/DeepEraser.png" alt="">
-        </div>
-      </td>
-      <td>
-		<strong>Hao Feng</strong>, Wendi Wang, Shaokai Liu, Jiajun Deng, Wengang Zhou, Houqiang Li
-        <br> 
-        DeepEraser: Deep Iterative Context Mining for Generic Text Eraser
-        <br> 
-        IEEE Transactions on Multimedia <strong>(TMM)</strong>, 2024
-        <br>
-        [<a href="https://arxiv.org/pdf/2402.19108.pdf" target="_blank">pdf</a>]
-		[<a href='https://github.com/fh2019ustc/DeepEraser'>code</a>]   
-		[<a href="./DeepEraser/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-
-	  
-<tr>
-<tr>	  
-    
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./PolySnake/PolySnake.png" alt="">
-        </div>
-      </td>
-      <td>
-        <strong>Hao Feng</strong>, Keyi Zhou, Wengang Zhou, Yufei Yin, Jiajun Deng, Qi Sun, Houqiang Li
-        <br> 
-        Recurrent Generic Contour-based Instance Segmentation with Progressive Learning
-        <br>
-        IEEE Transactions on Circuits and Systems for Video Technology <strong>(TCSVT)</strong>, 2024
-        <br>
-        [<a href="https://arxiv.org/pdf/2301.08898.pdf" target="_blank">pdf</a>]
-        [<a href='https://github.com/fh2019ustc/PolySnake'>code</a>]   
-		[<a href="./PolySnake/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  
-<tr>
-<tr>
-    
-
-
-<tr>
-<tr>	
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./DocTr++/DocTr++.png" alt="">
-        </div>
-      </td>
-      <td>
-        <strong>Hao Feng</strong>, Shaokai Liu, Jiajun Deng, Wengang Zhou, Houqiang Li
-        <br> 
-        Deep Unrestricted Document Image Rectification
-        <br> 
-        IEEE Transactions on Multimedia <strong>(TMM)</strong>, 2023
-        <br>
-        [<a href="https://ieeexplore.ieee.org/abstract/document/10374269" target="_blank">pdf</a>]
-        [<a href='https://github.com/fh2019ustc/DocTr-Plus'>code</a>]   
-		[<a href="./DocTr++/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>	
-<tr>
-<tr>	
-	  
-
-
-<tr>
-<tr>	
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./SimFIR/SimFIR.png" alt="">
-        </div>
-      </td>
-      <td>
-		<strong>Hao Feng</strong>, Wendi Wang, Jiajun Deng, Wengang Zhou, Li Li, and Houqiang Li 
-        <br> 
-        SimFIR: A Simple Framework for Fisheye Image Rectification with Self-supervised Representation Learning
-        <br> 
-        International Conference on Computer Vision <strong>(ICCV)</strong>, 2023
-        <br>
-        [<a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Feng_SimFIR_A_Simple_Framework_for_Fisheye_Image_Rectification_with_Self-supervised_ICCV_2023_paper.pdf" target="_blank">pdf</a>]
-        [<a href='https://github.com/fh2019ustc/SimFIR'>code</a>]   
-		[<a href="./SimFIR/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>   
-<tr>
-<tr>	
-
-
-  
-<tr>
-<tr>	  
-	  
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./DocGeoNet/Geometric_Representation_Learning.png" alt="">
-        </div>
-      </td>
-      <td>
-		<strong>Hao Feng</strong>, Wengang Zhou, Jiajun Deng, Yuechen Wang, and Houqiang Li 
-        <br> 
-        Geometric Representation Learning for Document Image Rectification
-        <br> 
-        European Conference on Computer Vision <strong>(ECCV)</strong>, 2022
-        <br>
-        [<a href="https://arxiv.org/pdf/2210.08161.pdf" target="_blank">pdf</a>]
-        [<a href='https://github.com/fh2019ustc/DocGeoNet'>code</a>]   
-		[<a href="./DocGeoNet/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  
-	
-<tr>
-<tr>
-
-
-<tr>
-<tr>
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./DocTr/DocTr.png" alt="">
-        </div>
-      </td>
-      <td>
-        <strong>Hao Feng</strong>, Yuechen Wang, Wengang Zhou, Jiajun Deng, and Houqiang Li
-        <br> 
-        DocTr: Document Image Transformer for Geometric Unwarping and Illumination Correction
-        <br> 
-        ACM International Conference on Multimedia <strong>(ACM MM)</strong>, <strong>Oral</strong>, 2021
-        <br>
-        [<a href="https://arxiv.org/pdf/2110.12942.pdf" target="_blank">pdf</a>]
-        [<a href='https://github.com/fh2019ustc/DocTr'>code</a>]   
-		[<a href="./DocTr/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-
-
-<tr>
-<tr>
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./RDTR/RDTR.png" alt="">
-        </div>
-      </td>
-      <td>
-        Wendi Wang, <strong>Hao Feng</strong>, Wengang Zhou, Zhaokang Liao, Houqiang Li
-        <br> 
-        Model-Aware Pre-Training for Radial Distortion Rectification
-        <br> 
-        IEEE Transactions on Image Processing <strong>(TIP)</strong>, 2023
-        <br>
-        [<a href="https://ieeexplore.ieee.org/abstract/document/10285626" target="_blank">pdf</a>]
-        [<a href='https://github.com/wwd-ustc/RDTR'>code</a>]   
-		[<a href="./RDTR/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-
-
-<tr>
-<tr>
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./DRNet/DRNet.png" alt="">
-        </div>
-      </td>
-      <td>
-        Shaokai Liu, <strong>Hao Feng</strong>, Wengang Zhou
-        <br> 
-        Rethinking Supervision in Document Unwarping: A Self-consistent Flow-free Approach
-        <br> 
-        IEEE Transactions on Circuits and Systems for Video Technology <strong>(TCSVT)</strong>, 2023
-        <br>
-        [<a href="https://ieeexplore.ieee.org/abstract/document/10327775" target="_blank">pdf</a>]
-		[<a href="./RDTR/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-
-
-<tr>
-<tr>
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./IP-SLT/IP-SLT.png" alt="">
-        </div>
-      </td>
-      <td>
-		Huijie Yao, Wengang Zhou, <strong>Hao Feng</strong>, Hezhen Hu, Hao Zhou, Houqiang Li
-        <br> 
-        Sign Language Translation with Iterative Prototype
-        <br> 
-        International Conference on Computer Vision <strong>(ICCV)</strong>, 2023
-        <br>
-        [<a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Yao_Sign_Language_Translation_with_Iterative_Prototype_ICCV_2023_paper.pdf" target="_blank">pdf</a>] 
-		[<a href="./IP-SLT/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-
-
-<tr>
-<tr>
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./PRNet/PRNet.png" alt="">
-        </div>
-      </td>
-      <td>
-		Yonghui Wang, Wengang Zhou, <strong>Hao Feng</strong>, Li Li, Houqiang Li
-        <br> 
-        Progressive Recurrent Network for Shadow Removal
-        <br> 
-        Computer Vision and Image Understanding <strong>(CVIU)</strong>, 2023
-        <br>
-        [<a href="https://arxiv.org/pdf/2311.00455.pdf" target="_blank">pdf</a>]
-		[<a href="./PRNet/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-
-
-
-  </tbody>
-</table>
- 
-
-
-<h2>Manuscripts</h2> 
-  <table border="0" width="100%">
-  <tbody>   
-
-<tr>
-<tr>	  
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./UniDoc/UniDoc.png" alt="">
-        </div>
-      </td>
-      <td>
-		<strong>Hao Feng</strong>, Zijian Wang, Jingqun Tang, Jinghui Lu, Hao Liu, Wengang Zhou, Houqiang Li, Can Huang
-        <br> 
-        UniDoc: A Universal Large Multimodal Model for Simultaneous Text Detection, Recognition, Spotting and Understanding
-        <br>
-        [<a href="https://arxiv.org/pdf/2308.11592.pdf" target="_blank">pdf</a>]
-		[<a href="./UniDoc/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-
-<tr>
-<tr>	  
-    <tr>
-      <td>
-        <div align="center">
-          <img height="100" width="240" src="./TextCoT/TextCoT.png" alt="">
-        </div>
-      </td>
-      <td>
-		Bozhi Luan, <strong>Hao Feng</strong>, Hong Chen, Wengang Zhou, Houqiang Li
-        <br> 
-        TextCoT: Zoom In for Enhanced Multimodal Text-Rich Image Understanding
-        <br>
-        [<a href="https://arxiv.org/pdf/2404.09797.pdf" target="_blank">pdf</a>]
-		[<a href='https://github.com/bzluan/TextCoT'>code</a>]   
-		[<a href="./TextCoT/bibtex.txt" target="_blank">bibtex</a>]
-      </td>
-    </tr>  	
-<tr>
-<tr>
-	
-  </tbody>
-</table> 	
-
-
-<h2>Academic Services</h2>
-<table id="tbServices" border="0" width="100%">
-  <tbody>
-    <tr>
-      <td>   Invited Reviewer for journals and conferences, including TMM, TCSVT, CVPR, ICCV, ECCV, AAAI, ACM MM, ACL, SIGGRAPH, etc. </td>
-    </tr>
-  </tbody>
-</table> 	
-	
-
-</div>
 </body>
 </html>
-
